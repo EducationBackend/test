@@ -39,6 +39,8 @@ jobs:
         run: echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" > ~/.npmrc
       - name: Authenticate with NPM
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - name: Add user to NPM
+        run: npm adduser --registry=https://registry.npmjs.org/
       - name: Npm publish
         run: npm publish --access public
       - name: Release
