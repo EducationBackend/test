@@ -33,14 +33,6 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Load the NPM token
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - name: Authenticate with GitHub
-        run: echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" > ~/.npmrc
-      - name: Authenticate with NPM
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - name: Npm publish
-        run: npm publish --access public
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - name: Release
