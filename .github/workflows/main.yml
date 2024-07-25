@@ -24,15 +24,6 @@ jobs:
     - name: Install dependencies
       run: npm install
       
- - name: Install esbuild
-      run: npm install esbuild --save-dev
-
-    - name: Run build
-      run: npx esbuild index.js --bundle --minify --outfile=dist/bundle.js
-
-    - name: Build package
-      run: npm run build
-       # Replace with your build script
     - name: Publish package
       env:
         NODE_AUTH_TOKEN: ${{ secrets.Test }}
