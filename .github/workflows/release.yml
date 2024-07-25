@@ -35,6 +35,8 @@ jobs:
         run: npm audit signatures
       - name: Load the NPM token
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - name: Authenticate with GitHub
+        run: echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" > ~/.npmrc
       - name: Npm publish
         run: npm publish --access public
       - name: Release
