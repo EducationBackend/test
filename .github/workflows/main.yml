@@ -23,10 +23,8 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-       - name: Set up .npmrc
-      run: echo "//registry.npmjs.org/:_authToken=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" > .npmrc
-
+    - name: npm login
+      run: npm login --registry=https://npm.pkg.github.com --scope=@educationbackend --always-auth
     - name: Publish package
       env:
         NODE_AUTH_TOKEN: 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
