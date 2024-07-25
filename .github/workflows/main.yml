@@ -14,18 +14,24 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v2
-          with:
-            node-version: 'lts/*'
-        - run: npm install
-        - run: npm run build
-        - run: npm audit signature
-        - run: npm publish
-        - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOCKEN }}
-        run: npm semantic-release
 
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 'lts/*'
+
+    - run: npm install
+
+    - run: npm run build
+
+    - run: npm audit signature
+
+    - run: npm publish
+
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # Corrected the secret name here
+      run: npm run semantic-release  # Assuming you meant to use npm run here
