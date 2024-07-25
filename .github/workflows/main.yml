@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-    # Optionally, you can publish on tags
     tags:
       - 'v*.*.*'
 
@@ -19,13 +18,15 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16' # Specify your Node.js version
+        node-version: '16'
 
     - name: Install dependencies
       run: npm install
-    - name: npm login
-      run: npm login --registry=https://npm.pkg.github.com --scope=@educationbackend --always-auth
+
+    - name: Set up .npmrc
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.TEST }}" > ~/.npmrc
+
     - name: Publish package
-      env:
-        NODE_AUTH_TOKEN: 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
       run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.TEST }}
