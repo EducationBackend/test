@@ -20,4 +20,4 @@ jobs:
               run: npm publish --access public
               working-directory: my-package
               env:
-                  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
