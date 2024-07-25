@@ -33,6 +33,6 @@ jobs:
         continue-on-error: true
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          Test: ${{ secrets.Test }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
