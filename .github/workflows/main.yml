@@ -25,9 +25,9 @@ jobs:
       run: npm install
 
        - name: Set up .npmrc
-      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.Test }}" > .npmrc
+      run: echo "//registry.npmjs.org/:_authToken=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" > .npmrc
 
     - name: Publish package
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.Test }}
+        NODE_AUTH_TOKEN: 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
       run: npm publish
