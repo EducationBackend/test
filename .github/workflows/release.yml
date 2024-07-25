@@ -33,4 +33,4 @@ jobs:
     - name: Publish package
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm publish --registry=https://npm.pkg.github.com
+      run: npx semantic-release
