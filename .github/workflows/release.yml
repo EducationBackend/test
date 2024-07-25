@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main # or main
+      - main
 
 permissions:
   contents: read # for checkout
@@ -26,9 +26,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+      - name: Install dependencies
+        run: npm install
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
-         continue-on-error: true
+        continue-on-error: true
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
