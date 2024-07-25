@@ -1,12 +1,15 @@
-name: Build and Publish
+name: Publish npm Package
 
 on:
   push:
     branches:
       - main
+    # Optionally, you can publish on tags
+    tags:
+      - 'v*.*.*'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,19 +19,21 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # or any other version you need
+        node-version: '16' # Specify your Node.js version
 
     - name: Install dependencies
       run: npm install
-
-       - name: Install esbuild
+      
+ - name: Install esbuild
       run: npm install esbuild --save-dev
 
     - name: Run build
       run: npx esbuild index.js --bundle --minify --outfile=dist/bundle.js
 
-    - name: Run build
+    - name: Build package
       run: npm run build
-
-    - name: Publish to GitHub Packages
-      run: npm publish 
+       # Replace with your build script
+    - name: Publish package
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.Test }}
+      run: npm publish
