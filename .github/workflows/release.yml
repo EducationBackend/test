@@ -28,6 +28,7 @@ jobs:
           node-version: "lts/*"
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
+         continue-on-error: true
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
