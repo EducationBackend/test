@@ -4,18 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild index.js --bundle --minify --outfile=dist/bundle.js"
-  },
-  "publishConfig": {
-    "@EducationBackend:registry": "https://npm.pkg.github.com"
+    "build": "tsc",
+    "semantic-release": "semantic-release"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "educationbackend": "^1.0.0"
+    "educationbackend": "^1.0.0",
+    "semantic-release": "^24.0.0",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
     "esbuild": "^0.23.0"
+  },
+  "files": [
+    "dist","README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }
