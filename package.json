@@ -6,9 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-"publishConfig": {
-  "@EducationBackend:registry": "https://npm.pkg.github.com"
-},
+  "publishConfig": {
+    "@EducationBackend:registry": "https://npm.pkg.github.com"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "educationbackend": "^1.0.0"
+  }
 }

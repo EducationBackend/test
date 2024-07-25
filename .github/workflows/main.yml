@@ -1,35 +1,34 @@
-name: Node.js Package
+name: Publish npm Package
 
 on:
   push:
     branches:
       - main
-  release:
-    types: [created]
+    # Optionally, you can publish on tags
+    tags:
+      - 'v*.*.*'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 16
 
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-          scope: '@EducationBackend'
-      - run: npm install
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Specify your Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test # Replace with your test script
+    - name: Build package
+      run: npm run build # Replace with your build script
+    - name: Publish package
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.Test }}
+      run: npm publish
