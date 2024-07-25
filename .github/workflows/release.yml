@@ -31,6 +31,10 @@ jobs:
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
         continue-on-error: true
+      - name: login to npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - name: npm publish
+        run: npm publish
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm adduser --registry=https://registry.npmjs.org --scope=@${{ github.repository_owner }} --always-auth --auth-type=oauth
       - name: Release
