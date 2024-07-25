@@ -32,7 +32,7 @@ jobs:
         run: npm audit signatures
         continue-on-error: true
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: npm publish 
+        run: npm adduser --registry=https://registry.npmjs.org --scope=@${{ github.repository_owner }} --always-auth --auth-type=oauth
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
