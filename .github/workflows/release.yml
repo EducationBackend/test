@@ -31,6 +31,8 @@ jobs:
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
         continue-on-error: true
+        - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: npm publish --dry-run
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
