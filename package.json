@@ -4,24 +4,27 @@
   "description": "📦 npm package tutorial",
   "main": "dist/index.js",
   "scripts": {
-      "start": "node dist/index.js"
+    "start": "node dist/index.js"
   },
   "files": [
-      "dist/index.js"
+    "dist/index.js"
   ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/EducationBackend/test"
+    "type": "git",
+    "url": "https://github.com/EducationBackend/test"
   },
   "keywords": [
-      "npm",
-      "publish",
-      "package",
-      "registry"
+    "npm",
+    "publish",
+    "package",
+    "registry"
   ],
   "license": "MIT",
   "bugs": {
-      "url": "https://github.com/EducationBackend/test/issues"
+    "url": "https://github.com/EducationBackend/test/issues"
   },
-  "homepage": "https://github.com/EducationBackend/test#readme"
+  "homepage": "https://github.com/EducationBackend/test#readme",
+  "dependencies": {
+    "audit": "^0.0.6"
+  }
 }
