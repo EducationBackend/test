@@ -35,6 +35,8 @@ jobs:
         run: npm audit signatures
       - name: Load the NPM token
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - name: Npm publish
+        run: npm publish --access public
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
