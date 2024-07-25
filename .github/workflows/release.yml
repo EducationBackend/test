@@ -29,8 +29,6 @@ jobs:
 
       - name: Install dependenciess
         run: npm cache clean --force
-      - name: Install dependencies
-        run: npm install
         continue-on-error: false
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
