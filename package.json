@@ -1,6 +1,6 @@
 {
   "name": "@educationbackend/test",
-  "version": "1.0.0",
+  "version": "1.0.0-dev",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,9 @@
     "esbuild": "^0.23.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "Readme.md"
   ],
   "publishConfig": {
     "access": "public"
