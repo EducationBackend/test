@@ -22,14 +22,12 @@ jobs:
       with:
         node-version: 'lts/*'
 
-    - run: npm ci
-
     - run: npm run build
 
     - run: npm audit signature
 
     - name: Release
       env:
-        GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # Corrected the secret name here
       run: npx semantic-release  # Assuming you meant to use npm run here
