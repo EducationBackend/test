@@ -2,7 +2,7 @@
   "name": "@backendeducation/test",
   "version": "0.0.3",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "semantic-release": "semantic-release"
