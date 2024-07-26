@@ -39,4 +39,4 @@ jobs:
       - name: Publish package
         run: npm publish
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.NPM_TOKEN }}
