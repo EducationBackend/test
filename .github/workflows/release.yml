@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
+      - run: npm run build
 
       # Set up .npmrc for npm authentication
       - name: Configure npm
