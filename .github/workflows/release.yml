@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/educationbackend
+
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
 
       # Set up .npmrc for npm authentication
       - name: Configure npm
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       # Publish the package
       - name: Publish package
