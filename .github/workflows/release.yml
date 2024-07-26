@@ -38,12 +38,12 @@ jobs:
       - name: Authenticate with GitHub
         run: echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" > ~/.npmrc
       - name: Npm publish
-        run: npm publish --access public
+        run: npm publish 
         continue-on-error: true
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: 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
         run: npx semantic-release
