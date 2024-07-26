@@ -37,9 +37,10 @@ jobs:
         run: echo "registry.npmjs.org/:_authToken=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" > ~/.npmrc
       - name: Authenticate with GitHub
         run: echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" > ~/.npmrc
+      - name: add user to the package
+        run: npm adduser --registry=https://npm.pkg.github.com --scope=@$GITHUB_ACTOR --always-auth
       - name: Npm publish
         run: npm publish 
-        continue-on-error: true
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - name: Release
