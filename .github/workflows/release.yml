@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 20
 
-  publish-npm:
+  publish-gpr:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -27,17 +27,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm run build
 
-      # Set up .npmrc for npm authentication
-      - name: Configure npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      # Configure .npmrc for GitHub Packages
+      - name: Configure npm for GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
 
-      # Publish the package
+      # Publish the package to GitHub Packages
       - name: Publish package
-        run: npm publish --access public
+        run: npm publish
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
