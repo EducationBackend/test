@@ -15,8 +15,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - run: npm ci
+      - run: npm run build
 
-  publish-github-packages:
+  publish:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -30,14 +32,13 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # Set up .npmrc for GitHub Packages authentication
+      # Configure npm for GitHub Packages
       - name: Configure npm
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-          echo "registry=https://npm.pkg.github.com/EducationBackend" >> ~/.npmrc
           echo "@educationbackend:registry=https://npm.pkg.github.com/" >> ~/.npmrc
 
-      # Publish the package with public access
+      # Publish the package
       - name: Publish package
         run: npm publish --access public
         env:
