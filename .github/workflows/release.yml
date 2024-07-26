@@ -32,11 +32,11 @@ jobs:
 
       # Configure .npmrc to use GitHub Packages registry
       - name: Configure npm for GitHub Packages
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       # Publish the package to GitHub Packages
       - name: Publish package
         run: npm publish --access public
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
