@@ -30,8 +30,8 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-      - run: adduser --registry registry.npmjs.org/:_authToken=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
-      - run: npm publish
+      - run: echo "registry.npmjs.org/:_authToken=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" > ~/.npmrc
+      - run: npm publish --access public
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: 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
