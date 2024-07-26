@@ -1,5 +1,5 @@
 {
-  "name": "@EducationBackend/test",
+  "name": "@educationbackend/test",
   "version": "0.0.4",
   "description": "",
   "main": "index.js",
@@ -30,11 +30,5 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "release": {
-    "branches": [
-      "main",
-      "next"
-    ]
   }
 }
