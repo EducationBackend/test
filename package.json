@@ -1,6 +1,6 @@
 {
   "name": "@backendeducation/test",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
