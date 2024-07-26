@@ -1,6 +1,6 @@
 {
-  "name": "@EducationBackend/test",
-  "version": "0.0.34",
+  "name": "@EducationBackend/res",
+  "version": "0.0.35",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
