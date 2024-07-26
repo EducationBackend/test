@@ -32,7 +32,7 @@ jobs:
 
       # Set up .npmrc for npm authentication
       - name: Configure npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run:  echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
 
       # Publish the package
       - name: Publish package
