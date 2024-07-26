@@ -37,8 +37,8 @@ jobs:
       # Configure Yarn for GitHub Packages
       - name: Configure Yarn
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-          echo "@educationbackend:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.yarnrc
+          echo "@educationbackend:registry=https://npm.pkg.github.com/" >> ~/.yarnrc
 
       # Publish the package
       - name: Publish package
