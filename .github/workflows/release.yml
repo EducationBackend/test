@@ -3,7 +3,7 @@ name: Node.js Package
 on:
   push:
     branches:
-      - main # or main
+      - main
   release:
     types: [created]
 
@@ -14,7 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 16
+      - run: npm ci
 
   publish-gpr:
     needs: build
@@ -26,11 +27,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
+      - run: |
+          echo "${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}" > ~/.npmrc
+          echo "npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" >> ~/.npmrc
       - run: npm publish --access public
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: npx semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: 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
