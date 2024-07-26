@@ -1,5 +1,5 @@
 {
-  "name": "@backendeducation/test",
+  "name": "@educationbackend/test",
   "version": "0.0.34",
   "description": "",
   "main": "dist/index.js",
