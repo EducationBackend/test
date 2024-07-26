@@ -38,7 +38,7 @@ jobs:
       - name: Authenticate with GitHub
         run: echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" > ~/.npmrc
       - name: add user to the package
-        run: npm adduser --registry=https://npm.pkg.github.com --scope=@educationbackend --always-auth
+        run: npm adduser educationabackend
       - name: Npm publish
         run: npm publish 
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
