@@ -1,6 +1,6 @@
 {
-  "name": "@backendeducation/test",
-  "version": "0.0.314",
+  "name": "@gamirares/test",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
