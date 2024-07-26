@@ -1,11 +1,15 @@
 {
-  "name": "@educationbackend/test",
+  "name": "@EducationBackend/test"",
   "version": "0.0.21",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EducationBackend/test.git"
   },
   "author": "",
   "license": "ISC",
