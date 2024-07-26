@@ -35,6 +35,7 @@ jobs:
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
           echo "registry=https://npm.pkg.github.com/EducationBackend" >> ~/.npmrc
+          echo "@educationbackend:registry=https://npm.pkg.github.com/" >> ~/.npmrc
 
       # Publish the package with public access
       - name: Publish package
