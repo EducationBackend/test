@@ -33,11 +33,11 @@ jobs:
       # Set up .npmrc for GitHub Packages authentication
       - name: Configure npm
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.MY_TOKEN }}" > ~/.npmrc
           echo "registry=https://npm.pkg.github.com/EducationBackend" >> ~/.npmrc
 
       # Publish the package
       - name: Publish package
         run: npm publish --access public
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MY_TOKEN: ${{ secrets.MY_TOKEN }}
