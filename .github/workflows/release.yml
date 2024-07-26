@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 20
 
-  publish-npm:
+  publish-github-packages:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -30,14 +30,14 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # Set up .npmrc for npm authentication
+      # Set up .npmrc for GitHub Packages authentication
       - name: Configure npm
-        run:  echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "registry=https://npm.pkg.github.com/YOUR_ORG" >> ~/.npmrc
 
       # Publish the package
       - name: Publish package
         run: npm publish --access public
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
