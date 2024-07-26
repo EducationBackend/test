@@ -40,7 +40,7 @@ jobs:
       - name: Authenticate with NPM
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - name: Add user to NPM
-        run: npm adduser registry=https://registry.npmjs.org/:_authToken=$NPM_TOKEN
+        run: npm adduser registry=https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
       - name: Npm publish
         run: npm publish --access public
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
