@@ -37,10 +37,9 @@ jobs:
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
           echo "@educationbackend:registry=https://npm.pkg.github.com/" >> ~/.npmrc
-          echo "@educationbackend:registry=https://npm.pkg.github.com" > ~/.npmrc
 
       # Publish the package
       - name: Publish package
         run: npm publish --access public
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
